@@ -142,7 +142,7 @@ export default function Hero() {
 
           <motion.h1 
             variants={fadeUp} 
-            className="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold text-black leading-[1.05] tracking-tight whitespace-nowrap"
+            className="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold text-black leading-[1.05] tracking-tight"
           >
             Dr. <span className="text-[#7AC943]">Priyanka Dubey</span>
           </motion.h1>
@@ -153,7 +153,7 @@ export default function Hero() {
 
           <motion.div variants={fadeUp} className="pt-4">
             <button className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#7AC943] text-white font-bold text-lg rounded-full shadow-[0_10px_25px_rgba(122,201,67,0.35)] hover:shadow-[0_15px_35px_rgba(122,201,67,0.5)] hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden">
-              <span className="relative z-10">CHECK THE MENU</span>
+              <span className="relative z-10">CHECK DEMO</span>
               <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>

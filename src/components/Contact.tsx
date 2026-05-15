@@ -55,7 +55,7 @@ export default function Contact() {
 
       <div 
         ref={contentRef}
-        className="max-w-[1200px] mx-auto bg-white/30 backdrop-blur-3xl rounded-[3rem] p-8 md:p-12 lg:p-16 relative overflow-hidden border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] z-10"
+        className="max-w-[1200px] mx-auto bg-white/30 backdrop-blur-3xl rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] z-10"
       >
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           

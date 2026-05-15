@@ -88,7 +88,7 @@ export default function ProblemSolution() {
           {problems.map((item, i) => (
             <div
               key={i}
-              className="ps-row flex items-center gap-3 md:gap-6"
+              className="ps-row flex flex-col md:flex-row items-center gap-3 md:gap-6"
             >
               {/* Problem */}
               <div className="ps-problem flex-1 bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-2xl p-4 md:p-6 text-center border-l-4 border-l-red-400/60 hover:border-l-red-400 transition-all duration-300">
@@ -99,7 +99,7 @@ export default function ProblemSolution() {
               </div>
 
               {/* Arrow */}
-              <div className="ps-arrow flex-shrink-0 w-10 h-10 rounded-full gradient-green flex items-center justify-center">
+              <div className="ps-arrow flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full gradient-green flex items-center justify-center rotate-90 md:rotate-0">
                 <svg
                   className="w-5 h-5 text-white"
                   fill="none"

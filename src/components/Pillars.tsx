@@ -140,7 +140,7 @@ export default function Pillars() {
                 {/* Bottom part: Title and Description */}
                 <div className="relative z-10 mt-6 lg:mt-0 flex flex-col justify-end">
                   <h3 className={`shrink-0 font-extrabold transition-all duration-500 ${
-                    isActive ? 'text-2xl lg:text-3xl text-black mb-3 whitespace-normal' : 'text-lg lg:text-xl text-gray-700 whitespace-nowrap overflow-hidden text-ellipsis'
+                    isActive ? 'text-2xl lg:text-3xl text-black mb-3 whitespace-normal' : 'text-base md:text-lg lg:text-xl text-gray-700 whitespace-nowrap overflow-hidden text-ellipsis'
                   }`}>
                     {pillar.title}
                   </h3>

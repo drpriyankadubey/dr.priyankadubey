@@ -124,7 +124,7 @@ export default function Results() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white/30 backdrop-blur-2xl p-10 rounded-3xl text-center border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
+          <div className="bg-white/30 backdrop-blur-2xl p-6 md:p-10 rounded-3xl text-center border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
             <div className="text-primary font-black text-6xl mb-2 flex justify-center items-center">
               1000<span className="text-3xl font-bold ml-1">+</span>
             </div>
@@ -132,7 +132,7 @@ export default function Results() {
             <p className="text-sm font-medium text-gray-500">Individuals who have successfully completed the Vitality protocol globally.</p>
           </div>
           
-          <div className="bg-white/30 backdrop-blur-2xl p-10 rounded-3xl text-center border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
+          <div className="bg-white/30 backdrop-blur-2xl p-6 md:p-10 rounded-3xl text-center border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
             <div className="text-primary font-black text-6xl mb-2 flex justify-center items-center">
               8-12<span className="text-3xl font-bold ml-1">kg</span>
             </div>
@@ -140,7 +140,7 @@ export default function Results() {
             <p className="text-sm font-medium text-gray-500">Sustainable body composition changes achieved within the first 12-16 weeks.</p>
           </div>
           
-          <div className="bg-white/30 backdrop-blur-2xl p-10 rounded-3xl flex flex-col justify-between border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
+          <div className="bg-white/30 backdrop-blur-2xl p-6 md:p-10 rounded-3xl flex flex-col justify-between border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
             <div className="mb-4">
               <div className="text-xs font-bold text-[#7AC943] uppercase tracking-widest mb-1 font-inter">Success Rate</div>
               <div className="text-2xl font-playfair font-black text-gray-900">94% Retention</div>

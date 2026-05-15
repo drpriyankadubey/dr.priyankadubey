@@ -10,7 +10,6 @@ import Results from './components/Results';
 import Services from './components/Services';
 import ProblemSolution from './components/ProblemSolution';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 
 function App() {
   const containerRef = useScrollAnimations();
@@ -30,7 +29,6 @@ function App() {
           <ProblemSolution />
           <Contact />
         </main>
-        <Footer />
       </div>
     </ReactLenis>
   );

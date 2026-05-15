@@ -74,7 +74,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="h-screen bg-white/10 relative overflow-hidden flex items-center">
+    <section ref={sectionRef} id="about" className="min-h-screen lg:h-screen py-24 lg:py-0 bg-white/10 relative overflow-hidden flex items-center">
       {/* Glassmorphic Background Elements */}
       <div className="absolute top-[10%] left-[5%] w-72 h-72 bg-[url('/images/ingredients/spinach.png')] bg-contain bg-center bg-no-repeat opacity-40 blur-[6px] -rotate-12 pointer-events-none z-0"></div>
       <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-[url('/images/ingredients/orange-slice.png')] bg-contain bg-center bg-no-repeat opacity-40 blur-[8px] rotate-45 pointer-events-none z-0"></div>
@@ -95,7 +95,7 @@ export default function About() {
               Combining deep clinical insights from world-renowned institutions with a passion for organic vitality. Dr. Priyanka Dubey bridges the gap between sophisticated medical technology and natural health optimization.
             </p>
             
-            <div className="grid grid-cols-2 gap-8 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 pt-4">
               <div className="p-6 bg-white/30 backdrop-blur-2xl rounded-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
                 <div className="text-sage-green mb-3">
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

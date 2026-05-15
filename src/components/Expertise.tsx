@@ -132,7 +132,7 @@ export default function Expertise() {
           <div 
             key={index}
             ref={el => cardsRef.current[index] = el}
-            className="w-[350px] shrink-0 bg-white/30 backdrop-blur-2xl p-8 rounded-3xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] perspective-grid preserve-3d group relative"
+            className="w-[300px] sm:w-[350px] shrink-0 bg-white/30 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] perspective-grid preserve-3d group relative"
           >
             {/* Progress bar line top */}
             <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
