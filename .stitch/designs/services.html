@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#4ae183",
+                        "tertiary-container": "#b0b4b2",
+                        "outline": "#6c7b6d",
+                        "secondary-container": "#e2e2e2",
+                        "on-primary-fixed-variant": "#005228",
+                        "on-tertiary-container": "#424645",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#646464",
+                        "tertiary-fixed": "#e0e3e1",
+                        "tertiary-fixed-dim": "#c4c7c5",
+                        "surface-tint": "#006d37",
+                        "on-tertiary-fixed": "#181c1c",
+                        "inverse-primary": "#4ae183",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#00210c",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "surface-container-low": "#f3f3f4",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#3d4a3e",
+                        "inverse-surface": "#2f3131",
+                        "primary": "#006d37",
+                        "tertiary": "#5b5f5e",
+                        "primary-fixed": "#6bfe9c",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "background": "#f9f9f9",
+                        "secondary": "#5e5e5e",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#005027",
+                        "surface": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-variant": "#e2e2e2",
+                        "primary-container": "#2ecc71",
+                        "on-surface": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#474747",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#434846",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bbcbbb",
+                        "surface-dim": "#dadada"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "section-padding": "80px",
+                        "container-max": "1200px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .horizontal-scroll-mask {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-white/70 backdrop-blur-lg border-b border-white/20 shadow-[0_40px_40px_rgba(46,204,113,0.03)] h-20">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-8 h-full">
+<div class="text-xl font-bold tracking-tighter text-gray-900 font-headline-md">Dr. Priyanka Dubey</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-gray-600 hover:text-primary transition-all duration-300 font-body-md" href="#">Experience</a>
+<a class="text-gray-600 hover:text-primary transition-all duration-300 font-body-md" href="#">Expertise</a>
+<a class="text-gray-600 hover:text-primary transition-all duration-300 font-body-md" href="#">Pillars</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-body-md" href="#">Services</a>
+<a class="text-gray-600 hover:text-primary transition-all duration-300 font-body-md" href="#">Contact</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-body-md font-semibold hover:scale-105 transition-transform duration-300">
+                Consult Now
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-20 pb-20 px-8 max-w-[1200px] mx-auto overflow-hidden">
+<div class="z-10 relative">
+<span class="text-primary font-label-caps tracking-widest block mb-4 uppercase">Advanced Clinical Wellness</span>
+<h1 class="font-display-xl text-on-surface mb-6 max-w-3xl">Clinical Excellence Meets Organic Vitality.</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mb-12">Bridging the gap between scientific rigor and holistic health through precision nutrition and metabolic optimization.</p>
+</div>
+<div class="absolute top-0 right-0 -z-10 w-1/2 h-full opacity-20">
+<div class="w-full h-full bg-gradient-to-br from-primary-fixed-dim to-transparent rounded-full blur-[100px]"></div>
+</div>
+</section>
+<!-- Services Horizontal Scroll Simulation -->
+<section class="py-20 bg-surface-container-low overflow-hidden">
+<div class="max-w-[1200px] mx-auto px-8 mb-12 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-on-surface">Wellness Services</h2>
+<p class="font-body-md text-on-surface-variant">Tailored protocols for every stage of your health journey.</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline/20 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline/20 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto px-8 md:px-[calc((100vw-1200px)/2+32px)] no-scrollbar pb-12">
+<!-- Service Card 1 -->
+<div class="min-w-[320px] md:min-w-[400px] glass-card rounded-lg p-8 shadow-sm flex flex-col h-[500px]">
+<div class="bg-primary-container/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">person</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">Personal Wellness</h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow">One-on-one clinical consultation focusing on hormonal balance, gut health, and personalized longevity protocols based on your unique bio-markers.</p>
+<div class="relative w-full h-40 rounded-DEFAULT overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="clean minimal wellness space with yoga mat and soft sunlight through sheer curtains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu3maatdMV3lfWv6DPg_yhp5pQV0qoNoLX_JZWDh7aGF55j-aBZzS8ShxzjptqOMlg9518_kc5VoxgvnWuU5-mK-jRPIorxi9lqq8xWS1gEPTufW3zHVZtPtsVrY9vb6Aez9hmDMtf98rWVPt55l8fDSXcWXC83vsJtYub0Mso7NQBtubsjREqzHtaB6YLP5u9-7mEaxMVvIxBqD2PYaJJFM-p0w2ZeEsF7kn2evSE_cxi5_9z1_d7nkGNEqMuiL212vEA1xbybWQ"/>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="min-w-[320px] md:min-w-[400px] glass-card rounded-lg p-8 shadow-sm flex flex-col h-[500px]">
+<div class="bg-primary-container/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">corporate_fare</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">Corporate Wellness</h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow">Scalable health solutions for high-performance teams. Reducing burnout and increasing cognitive clarity through science-backed nutrition and lifestyle strategies.</p>
+<div class="relative w-full h-40 rounded-DEFAULT overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="modern minimalist bright office lounge with green plants and natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZVJZT65DwLhWvqa5JxvDPZ1Db6scLIkXcvElAQk8IdfiOsNy8WgJGMXPQvJqhLE2WqvDumWbmMNsIgrxUtkfIWXj7JAyUA_X1TR4-vuuDv-T_ajIIBXBmJTrD4D2k8XRW2T5i3TxBGiNr6tz7jLZ9cBOv-LErMdAipx5urZfLJ3Zf3tb8DEU5pqdfe5-4FseyZlLVyaBnpYJ05fmIK3F-VYpyXNjEXsKB5IvpTWlvOFxMt_PI6fDG0eF98M49zpfiSAJ8UHCZwTg"/>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="min-w-[320px] md:min-w-[400px] glass-card rounded-lg p-8 shadow-sm flex flex-col h-[500px]">
+<div class="bg-primary-container/10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">groups</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">Workshops</h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow">Interactive deep-dives into bio-hacking, gut microbiome restoration, and the science of metabolic health. Live demonstrations and clinical Q&amp;A sessions.</p>
+<div class="relative w-full h-40 rounded-DEFAULT overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="group of professionals in a bright educational workshop setting with minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsRE8nULRNK8TfzIMK_kt88smam6B-Qy51CGsHPndxL3OpTC7Ty39SdOXiurBuXTqoH4B5tgDKZwxtbzZrlxfxQGRwZ2o65aefVqHJxyNAx6Z44ks1cEDEnupqsxMbBw6mds4uOviqjUt0mxmkiP13tdYthCq8dw50cQPDbhK_hoOnLvocqBv5noRoeB8UbPfH29vWKSxzG25Tp_CoZaxGhCjgqBixh4k-9rZaCcS4XbCPQyHgsr5XiFw73JJrTchb7Y7mqU6e4jM"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem/Solution: Split Screen -->
+<section class="py-20 px-8 max-w-[1200px] mx-auto">
+<div class="grid md:grid-cols-2 gap-px bg-outline/10 rounded-lg overflow-hidden shadow-2xl">
+<!-- The Problem -->
+<div class="bg-white p-12 flex flex-col">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-error text-3xl">sentiment_dissatisfied</span>
+<h3 class="font-headline-md text-on-surface">The Struggle: Bloating</h3>
+</div>
+<ul class="space-y-6 flex-grow">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-error mt-1">close</span>
+<div>
+<p class="font-body-md font-bold text-on-surface">Systemic Inflammation</p>
+<p class="font-body-md text-on-surface-variant">Constant discomfort and water retention affecting daily focus.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-error mt-1">close</span>
+<div>
+<p class="font-body-md font-bold text-on-surface">Metabolic Sluggishness</p>
+<p class="font-body-md text-on-surface-variant">Poor nutrient absorption leading to afternoon energy crashes.</p>
+</div>
+</li>
+</ul>
+<div class="mt-12 h-64 rounded-DEFAULT overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-60" data-alt="close up of glass of dark murky water with harsh shadows representing toxins" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA270mLdpEthciJv8Wfih8ljgohwL7QqjYDVV-WkDWcMzv_HKiMqk_SSio_qk098ws6XJRn-y0UaDurvCpf0fLQbZYcv92p5_vRqLz0sPMiX8Tdr2MI5U8Vcj2SQVgBiJ-KGPwe5soA8sGv9GjRDjEHorb6-qOSRIkB0cjnl7ZygVpbLOgdMbjTnhvxM32XUAcKYtZarRQA23WlJETECa8ANZyOGB01nzIHEQ91F-XYn1YZM9oDlUIB-OkuouIH5TyHhpzzRNdEnWk"/>
+</div>
+</div>
+<!-- The Solution -->
+<div class="bg-primary-container p-12 flex flex-col text-on-primary-container">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-on-primary-container text-3xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+<h3 class="font-headline-md">The Path: Gut Healing</h3>
+</div>
+<ul class="space-y-6 flex-grow">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<div>
+<p class="font-body-md font-bold">Microbiome Restoration</p>
+<p class="font-body-md opacity-90">Precision probiotics and fibers to rebuild gut integrity.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-primary-container mt-1">check_circle</span>
+<div>
+<p class="font-body-md font-bold">Radiant Vitality</p>
+<p class="font-body-md opacity-90">Optimized digestion resulting in clear skin and sustained energy.</p>
+</div>
+</li>
+</ul>
+<div class="mt-12 h-64 rounded-DEFAULT overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="vibrant fresh green juice splash with bright natural lighting and water droplets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYgAFsMIDlBZ0POmXxSrr82osqSVfeMZnKEb46c2Pqa2tnYDsPhnqi898PqzUQxERRMoc9kcmkseH1zi-wyPIIAIUYm9jTIv5wt8uG3IXxFWc2rPgKZRnS2dujgN8VbpV8-mKs2X_fMxP9mFq0_h-vGnY5lV8TCDSaDeCEGEfNEDpfohXSZcd73slnZtgNeAes9BVouc9kui_ClRxFmPC_UmiuDGAaxkCtrD6lVOPPYESlPuH7wqERcpW8NH0Ju0gRLvvh0MNAjI8"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA: Contact Section -->
+<section class="py-20 px-8">
+<div class="max-w-[1200px] mx-auto glass-card rounded-lg p-12 md:p-20 text-center relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-primary font-label-caps tracking-widest block mb-4">READY TO TRANSFORM?</span>
+<h2 class="font-display-xl text-on-surface mb-8">Begin Your Clinical Journey</h2>
+<p class="font-body-lg text-on-surface-variant max-w-xl mx-auto mb-12">Take the first step toward peak metabolic health with a 1:1 strategy session.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8">
+<div class="flex items-center gap-3 bg-white px-8 py-4 rounded-full border border-outline/10 shadow-sm">
+<span class="material-symbols-outlined text-primary">call</span>
+<span class="font-headline-md text-on-surface">+1 (555) 0123-4567</span>
+</div>
+<button class="relative bg-primary text-on-primary px-10 py-5 rounded-full font-body-lg font-bold shadow-xl hover:scale-105 transition-transform duration-300">
+<span class="relative z-10">Consult Now</span>
+<span class="absolute inset-0 bg-primary rounded-full animate-ping opacity-20"></span>
+</button>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-gray-100 dark:border-gray-900 pt-20 pb-10 mt-20 bg-white dark:bg-gray-950">
+<div class="max-w-[1200px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-end gap-12">
+<div class="space-y-4">
+<div class="text-lg font-black text-primary">Dr. Priyanka Dubey</div>
+<p class="font-inter text-sm text-gray-500 max-w-xs">© 2024 Dr. Priyanka Dubey. Clinical Excellence &amp; Vitality.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-sm text-gray-400 hover:text-primary transition-opacity" href="#">Privacy Policy</a>
+<a class="font-inter text-sm text-gray-400 hover:text-primary transition-opacity" href="#">Medical Disclaimer</a>
+<a class="font-inter text-sm text-gray-400 hover:text-primary transition-opacity" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

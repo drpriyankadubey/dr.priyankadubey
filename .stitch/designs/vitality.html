@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Priyanka Dubey | Vitality Framework</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed-dim": "#4ae183",
+                    "tertiary-container": "#b0b4b2",
+                    "outline": "#6c7b6d",
+                    "secondary-container": "#e2e2e2",
+                    "on-primary-fixed-variant": "#005228",
+                    "on-tertiary-container": "#424645",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#646464",
+                    "tertiary-fixed": "#e0e3e1",
+                    "tertiary-fixed-dim": "#c4c7c5",
+                    "surface-tint": "#006d37",
+                    "on-tertiary-fixed": "#181c1c",
+                    "inverse-primary": "#4ae183",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#00210c",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "surface-container-low": "#f3f3f4",
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3d4a3e",
+                    "inverse-surface": "#2f3131",
+                    "primary": "#006d37",
+                    "tertiary": "#5b5f5e",
+                    "primary-fixed": "#6bfe9c",
+                    "on-secondary-fixed": "#1b1b1b",
+                    "background": "#f9f9f9",
+                    "secondary": "#5e5e5e",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#005027",
+                    "surface": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#e2e2e2",
+                    "surface-variant": "#e2e2e2",
+                    "primary-container": "#2ecc71",
+                    "on-surface": "#1a1c1c",
+                    "on-background": "#1a1c1c",
+                    "on-secondary-fixed-variant": "#474747",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#434846",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bbcbbb",
+                    "surface-dim": "#dadada"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "section-padding": "80px",
+                    "container-max": "1200px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-xl": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 40px 40px rgba(46, 204, 113, 0.03);
+        }
+        .vitality-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.08) 0%, transparent 70%);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background antialiased overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-white/70 backdrop-blur-lg border-b border-white/20 shadow-[0_40px_40px_rgba(46,204,113,0.03)] font-inter tracking-tight antialiased">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-8 h-20">
+<div class="text-xl font-bold tracking-tighter text-gray-900">Dr. Priyanka Dubey</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-gray-600 hover:text-emerald-500 cursor-pointer transition-all duration-300" href="#">Experience</a>
+<a class="text-emerald-600 font-semibold border-b-2 border-emerald-500 pb-1 cursor-pointer transition-all duration-300" href="#">Expertise</a>
+<a class="text-gray-600 hover:text-emerald-500 cursor-pointer transition-all duration-300" href="#">Pillars</a>
+<a class="text-gray-600 hover:text-emerald-500 cursor-pointer transition-all duration-300" href="#">Services</a>
+<a class="text-gray-600 hover:text-emerald-500 cursor-pointer transition-all duration-300" href="#">Contact</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-semibold hover:scale-105 transition-transform duration-300 cursor-pointer">
+                Consult Now
+            </button>
+</div>
+</header>
+<main class="vitality-gradient">
+<!-- Hero: VITALITY FRAMEWORK -->
+<section class="max-w-[1200px] mx-auto px-8 pt-24 pb-12 text-center">
+<div class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed-dim/20 text-primary font-label-caps mb-6">
+                SCIENTIFICALLY PROVEN METHODOLOGY
+            </div>
+<h1 class="font-display-xl text-display-xl text-on-surface mb-6 leading-tight">
+                THE VITALITY <span class="text-primary italic">FRAMEWORK</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto">
+                A clinical approach to sustainable health, balancing biological systems through five interconnected scientific pillars.
+            </p>
+</section>
+<!-- Circular Orbiting Pillars Section -->
+<section class="max-w-[1200px] mx-auto px-8 py-20 relative">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+<!-- Visual Pillar Representation -->
+<div class="relative w-[340px] h-[340px] md:w-[500px] md:h-[500px] flex items-center justify-center">
+<!-- Central Hub -->
+<div class="absolute z-10 w-32 h-32 md:w-48 md:h-48 rounded-full glass-card flex flex-col items-center justify-center text-center p-4 border-primary/20">
+<span class="material-symbols-outlined text-primary text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">vital_signs</span>
+<span class="font-label-caps text-on-surface">VITALITY CORE</span>
+</div>
+<!-- Orbital Rings (Decorative) -->
+<div class="absolute w-full h-full border border-primary/5 rounded-full"></div>
+<div class="absolute w-3/4 h-3/4 border border-primary/10 rounded-full"></div>
+<!-- Orbiting Nodes -->
+<!-- Gut Health -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
+<div class="w-20 h-20 md:w-28 md:h-28 rounded-full glass-card flex flex-col items-center justify-center transition-all duration-500 hover:scale-110 hover:border-primary/40 cursor-default">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="restaurant">restaurant</span>
+<span class="font-label-caps text-[10px]">GUT HEALTH</span>
+</div>
+</div>
+<!-- Hormone Balance -->
+<div class="absolute top-1/4 right-0 translate-x-1/2 group">
+<div class="w-20 h-20 md:w-28 md:h-28 rounded-full glass-card flex flex-col items-center justify-center transition-all duration-500 hover:scale-110 hover:border-primary/40 cursor-default">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="opacity">opacity</span>
+<span class="font-label-caps text-[10px]">HORMONES</span>
+</div>
+</div>
+<!-- Nutrition -->
+<div class="absolute bottom-0 right-1/4 translate-y-1/2 group">
+<div class="w-20 h-20 md:w-28 md:h-28 rounded-full glass-card flex flex-col items-center justify-center transition-all duration-500 hover:scale-110 hover:border-primary/40 cursor-default">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="eco">eco</span>
+<span class="font-label-caps text-[10px]">NUTRITION</span>
+</div>
+</div>
+<!-- Lifestyle -->
+<div class="absolute bottom-0 left-1/4 translate-y-1/2 group">
+<div class="w-20 h-20 md:w-28 md:h-28 rounded-full glass-card flex flex-col items-center justify-center transition-all duration-500 hover:scale-110 hover:border-primary/40 cursor-default">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="directions_run">directions_run</span>
+<span class="font-label-caps text-[10px]">LIFESTYLE</span>
+</div>
+</div>
+<!-- Mindset -->
+<div class="absolute top-1/4 left-0 -translate-x-1/2 group">
+<div class="w-20 h-20 md:w-28 md:h-28 rounded-full glass-card flex flex-col items-center justify-center transition-all duration-500 hover:scale-110 hover:border-primary/40 cursor-default">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="psychology">psychology</span>
+<span class="font-label-caps text-[10px]">MINDSET</span>
+</div>
+</div>
+</div>
+<!-- Detailed Text Grid -->
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-card p-8 rounded-lg">
+<h3 class="font-headline-md text-primary mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="microbiology">microbiology</span>
+                            Gut Health
+                        </h3>
+<p class="text-body-md text-secondary">Optimizing the microbiome as the foundation of immunity, nutrient absorption, and mental clarity.</p>
+</div>
+<div class="glass-card p-8 rounded-lg">
+<h3 class="font-headline-md text-primary mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span>
+                            Hormone Balance
+                        </h3>
+<p class="text-body-md text-secondary">Precise calibration of metabolic and endocrine signals to regulate energy and weight.</p>
+</div>
+<div class="glass-card p-8 rounded-lg">
+<h3 class="font-headline-md text-primary mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+                            Nutrition
+                        </h3>
+<p class="text-body-md text-secondary">Clinical grade dietary protocols focused on bioavailability and cellular rejuvenation.</p>
+</div>
+<div class="glass-card p-8 rounded-lg">
+<h3 class="font-headline-md text-primary mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="self_improvement">self_improvement</span>
+                            Mindset
+                        </h3>
+<p class="text-body-md text-secondary">Cognitive alignment techniques to ensure long-term behavioral adherence and stress resilience.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Results Section: Dynamic Performance -->
+<section class="max-w-[1200px] mx-auto px-8 py-24">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">CLINICAL RESULTS &amp; IMPACT</h2>
+<div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+</div>
+<!-- Bento Grid Results -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Counter 1 -->
+<div class="glass-card p-10 rounded-xl text-center border-emerald-100">
+<div class="text-primary font-black text-6xl mb-2 flex justify-center items-center">
+                        1000<span class="text-3xl font-bold ml-1">+</span>
+</div>
+<div class="font-label-caps text-secondary-fixed-dim uppercase tracking-widest mb-4">Clients Transformed</div>
+<p class="text-body-md text-secondary">Individuals who have successfully completed the Vitality protocol globally.</p>
+</div>
+<!-- Counter 2 -->
+<div class="glass-card p-10 rounded-xl text-center border-emerald-100">
+<div class="text-primary font-black text-6xl mb-2 flex justify-center items-center">
+                        8-12<span class="text-3xl font-bold ml-1">kg</span>
+</div>
+<div class="font-label-caps text-secondary-fixed-dim uppercase tracking-widest mb-4">Avg. Weight Loss</div>
+<p class="text-body-md text-secondary">Sustainable body composition changes achieved within the first 12-16 weeks.</p>
+</div>
+<!-- Vitality Chart Component -->
+<div class="glass-card p-10 rounded-xl flex flex-col justify-between border-emerald-100">
+<div class="mb-4">
+<div class="font-label-caps text-primary uppercase tracking-widest mb-1">Success Rate</div>
+<div class="font-headline-md text-on-surface">94% Retention</div>
+</div>
+<div class="h-24 w-full flex items-end gap-2">
+<div class="bg-primary/10 w-full rounded-t-lg h-1/2"></div>
+<div class="bg-primary/20 w-full rounded-t-lg h-2/3"></div>
+<div class="bg-primary/40 w-full rounded-t-lg h-3/4"></div>
+<div class="bg-primary/60 w-full rounded-t-lg h-5/6"></div>
+<div class="bg-primary w-full rounded-t-lg h-full"></div>
+</div>
+</div>
+</div>
+<!-- Transformation Showcase -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<h3 class="font-headline-lg text-headline-lg leading-tight">Quantifiable <br/> <span class="text-primary">Life Improvements</span></h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 p-4 glass-card rounded-lg">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full" data-icon="bolt">bolt</span>
+<span class="font-body-md font-semibold">65% Increase in measurable daily energy levels</span>
+</li>
+<li class="flex items-center gap-4 p-4 glass-card rounded-lg">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full" data-icon="sleep">sleep</span>
+<span class="font-body-md font-semibold">40% Better sleep quality through hormone regulation</span>
+</li>
+<li class="flex items-center gap-4 p-4 glass-card rounded-lg">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-full" data-icon="health_and_safety">health_and_safety</span>
+<span class="font-body-md font-semibold">Significant reduction in clinical inflammation markers</span>
+</li>
+</ul>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-xl blur-2xl group-hover:bg-primary/10 transition-all duration-700"></div>
+<img alt="Clinical Health Tracking" class="relative rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover aspect-[4/3] w-full" data-alt="Modern high-tech medical clinic interior with clean white surfaces, glowing green light accents, and advanced diagnostic displays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbbLPR-t4T2ssB58XRw56BlTh4qbp-hbhQI45AF6rjeWyZ2bbkKweOeT-BBYQiwjcGhA-0DEs2USo28W-fC9eoWeWQu18kGfoovYMUCVzR0x9BcC_TjQDTfEC_ay-VIedZ5LCKbnYgZYGjH7WxrNWlDGyZPOqubsXLreYXBIMI2bXKf7Zmw_f7Qjzl422xAIM_jWbRxFwFuuCLdK5Kig9IdFENMSDaQCB2JnohDLYgppyu8U0qM6tsFUJEi0bADv9ilpfT7fMWVYA"/>
+<div class="absolute bottom-6 right-6 glass-card px-6 py-4 rounded-lg">
+<div class="font-headline-md text-primary">Evidence-Based</div>
+<div class="font-label-caps text-secondary">RESEARCH DRIVEN</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="max-w-[1200px] mx-auto px-8 pb-32">
+<div class="glass-card bg-primary-fixed-dim/10 border-primary/10 p-16 rounded-xl text-center">
+<h2 class="font-headline-lg text-headline-lg mb-6">Ready to Activate Your Vitality?</h2>
+<p class="font-body-lg text-body-lg text-secondary max-w-xl mx-auto mb-10">
+                    Join 1000+ others who have redefined their health baseline using our clinical framework.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-lg shadow-primary/20">
+                        Book Initial Assessment
+                    </button>
+<button class="glass-card px-10 py-4 rounded-full font-bold text-lg hover:bg-white/90 transition-all border-black/10">
+                        Download Case Studies
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-gray-100 dark:border-gray-900 bg-white pt-20 pb-10 mt-20">
+<div class="max-w-[1200px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-end">
+<div>
+<div class="text-lg font-black text-emerald-600 mb-4">Dr. Priyanka Dubey</div>
+<div class="font-inter text-sm text-gray-500 mb-2">© 2024 Dr. Priyanka Dubey. Clinical Excellence &amp; Vitality.</div>
+</div>
+<div class="flex gap-8">
+<a class="text-gray-400 hover:text-emerald-500 font-inter text-sm transition-opacity" href="#">Privacy Policy</a>
+<a class="text-gray-400 hover:text-emerald-500 font-inter text-sm transition-opacity" href="#">Medical Disclaimer</a>
+<a class="text-gray-400 hover:text-emerald-500 font-inter text-sm transition-opacity" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
