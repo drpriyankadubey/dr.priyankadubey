@@ -86,7 +86,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Static Left Side */}
-          <div ref={leftColRef} className="lg:col-span-5 space-y-8">
+          <div ref={leftColRef} className="lg:col-span-5 space-y-8 order-2 lg:order-1">
             <h2 className="text-4xl md:text-5xl font-playfair font-black text-gray-900 tracking-tight">
               A Journey of <br/>
               <span className="text-sage-green">Scientific Rigor</span>
@@ -118,18 +118,18 @@ export default function About() {
           </div>
           
           {/* Scrolling Right Side (Timeline Cards) */}
-          <div className="lg:col-span-7 relative h-[400px]">
+          <div className="lg:col-span-7 relative h-[420px] sm:h-[400px] order-1 lg:order-2">
             {timelineItems.map((item, index) => (
               <div 
                 key={index}
                 ref={el => cardsRef.current[index] = el}
-                className="absolute inset-x-0 top-0 bg-white/30 backdrop-blur-2xl p-8 rounded-3xl border border-white/50 flex gap-6 items-start shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
+                className="absolute inset-x-0 top-0 bg-white/30 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/50 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
               >
-                <div className="w-16 h-16 rounded-full bg-sage-green/10 flex items-center justify-center shrink-0 border border-sage-green/20 text-sage-green">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-sage-green/10 flex items-center justify-center shrink-0 border border-sage-green/20 text-sage-green">
                    {/* Fallback svg icons for material symbols */}
-                   {index === 0 && <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
-                   {index === 1 && <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
-                   {index === 2 && <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+                   {index === 0 && <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
+                   {index === 1 && <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
+                   {index === 2 && <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
                 </div>
                 <div>
                   <span className="text-sage-green font-bold text-xs tracking-widest uppercase mb-2 block font-inter">{item.period}</span>

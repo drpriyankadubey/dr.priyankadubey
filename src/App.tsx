@@ -1,14 +1,14 @@
 import { ReactLenis } from 'lenis/react';
 import { useScrollAnimations } from './hooks/useScrollAnimations';
-import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Expertise from './components/Expertise';
 import Conditions from './components/Conditions';
 import Pillars from './components/Pillars';
 import Results from './components/Results';
-import Services from './components/Services';
 import ProblemSolution from './components/ProblemSolution';
+import Gallery from './components/Gallery';
+import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 
 function App() {
@@ -17,7 +17,6 @@ function App() {
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
       <div ref={containerRef} className="relative bg-bg">
-        <Navbar />
         <main>
           <Hero />
           <About />
@@ -25,8 +24,9 @@ function App() {
           <Conditions />
           <Pillars />
           <Results />
-          <Services />
           <ProblemSolution />
+          <Gallery />
+          <Pricing />
           <Contact />
         </main>
       </div>

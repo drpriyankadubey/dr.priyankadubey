@@ -18,7 +18,7 @@ export default function ProblemSolution() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>('.ps-row').forEach((row) => {
+      gsap.utils.toArray<HTMLElement>('.ps-row', sectionRef.current).forEach((row) => {
         const problem = row.querySelector('.ps-problem');
         const solution = row.querySelector('.ps-solution');
         const arrow = row.querySelector('.ps-arrow');
@@ -88,20 +88,20 @@ export default function ProblemSolution() {
           {problems.map((item, i) => (
             <div
               key={i}
-              className="ps-row flex flex-col md:flex-row items-center gap-3 md:gap-6"
+              className="ps-row flex flex-row items-stretch md:items-center gap-2 sm:gap-3 md:gap-6"
             >
               {/* Problem */}
-              <div className="ps-problem flex-1 bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-2xl p-4 md:p-6 text-center border-l-4 border-l-red-400/60 hover:border-l-red-400 transition-all duration-300">
-                <span className="text-lg md:text-xl mb-1 block">{item.icon}</span>
-                <span className="text-sm md:text-base font-inter font-semibold text-dark-olive">
+              <div className="ps-problem flex-1 flex flex-col justify-center bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 text-center border-l-4 border-l-red-400/60 hover:border-l-red-400 transition-all duration-300">
+                <span className="text-base sm:text-lg md:text-xl mb-1 block">{item.icon}</span>
+                <span className="text-xs sm:text-sm md:text-base font-inter font-semibold text-dark-olive leading-tight">
                   {item.problem}
                 </span>
               </div>
 
               {/* Arrow */}
-              <div className="ps-arrow flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full gradient-green flex items-center justify-center rotate-90 md:rotate-0">
+              <div className="ps-arrow flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full gradient-green flex items-center justify-center self-center shadow-md">
                 <svg
-                  className="w-5 h-5 text-white"
+                  className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -117,8 +117,8 @@ export default function ProblemSolution() {
               </div>
 
               {/* Solution */}
-              <div className="ps-solution flex-1 bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-2xl p-4 md:p-6 text-center border-l-4 border-l-primary hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all duration-300">
-                <span className="text-sm md:text-base font-inter font-semibold text-sage-green">
+              <div className="ps-solution flex-1 flex flex-col justify-center bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 text-center border-l-4 border-l-primary hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all duration-300">
+                <span className="text-xs sm:text-sm md:text-base font-inter font-bold text-sage-green leading-tight">
                   {item.solution}
                 </span>
               </div>

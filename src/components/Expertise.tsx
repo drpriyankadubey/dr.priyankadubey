@@ -67,38 +67,24 @@ export default function Expertise() {
       cardsRef.current.forEach((card) => {
         if (!card) return;
         
-        // Icon scaling
-        gsap.fromTo(card.querySelector('.icon-circle'),
-          { scale: 0.5, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.5,
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: tween,
-              start: 'left center+=200',
-              end: 'left center-=200',
-              toggleActions: 'play reverse play reverse',
-            }
+        const cardTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            containerAnimation: tween,
+            start: 'left 95%',
+            end: 'right 85%',
+            scrub: true,
           }
-        );
+        });
 
-        // Text fade in
-        gsap.fromTo(card.querySelectorAll('.text-content'),
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-              trigger: card,
-              containerAnimation: tween,
-              start: 'left center+=200',
-              toggleActions: 'play none none reverse',
-            }
-          }
+        cardTl.fromTo(card.querySelector('.icon-circle'),
+          { scale: 0.5, opacity: 0 },
+          { scale: 1, opacity: 1, ease: 'power2.out' }
+        )
+        .fromTo(card.querySelectorAll('.text-content'),
+          { opacity: 0, x: 20 },
+          { opacity: 1, x: 0, stagger: 0.1, ease: 'power2.out' },
+          "-=0.4"
         );
       });
 
@@ -147,9 +133,9 @@ export default function Expertise() {
             <h3 className="text-content text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
             <p className="text-content text-gray-600 mb-6 font-medium leading-relaxed">{item.description}</p>
             
-            <ul className="text-content space-y-3">
+            <ul className="space-y-3">
               {item.bullets.map((bullet, bIndex) => (
-                <li key={bIndex} className="flex items-center text-xs font-bold uppercase tracking-widest text-gray-700">
+                <li key={bIndex} className="text-content flex items-center text-xs font-bold uppercase tracking-widest text-gray-700">
                   <svg className="w-4 h-4 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>

@@ -60,44 +60,44 @@ export default function Results() {
         );
       }
 
-      // Animate slides fading in and out
+      // Sleek clip-path wipe animation with number counters
       slidesRef.current.forEach((slide, index) => {
         if (!slide) return;
         
-        const progressCircle = slide.querySelector('.progress-circle-fill');
+        const numberEl = slide.querySelector('.metric-number');
+        const progressBar = slide.querySelector('.metric-progress-bar');
         const metricValue = parseInt(showcaseData[index].metric);
-        const targetOffset = 100 - metricValue; // pathLength is 100
         
-        // At index 0, it's already visible initially
-        if (index === 0 && progressCircle) {
-          tl.fromTo(progressCircle, 
-            { strokeDashoffset: 100 }, 
-            { strokeDashoffset: targetOffset, duration: 1.2, ease: 'power3.out' }, 
-            0
-          );
-        }
+        // Custom object to animate the number counter
+        const counter = { val: 0 };
+        const updateCounter = () => {
+          if (numberEl) numberEl.innerHTML = Math.round(counter.val).toString();
+        };
 
-        if (index > 0) {
-          // Smooth scale and push in current slide
+        if (index === 0) {
+          // Slide 0 starts visible, just animate the inner contents
+          tl.to(counter, { val: metricValue, duration: 1.5, ease: 'power3.out', onUpdate: updateCounter }, 0);
+          if (progressBar) {
+            tl.fromTo(progressBar, { scaleX: 0 }, { scaleX: metricValue / 100, duration: 1.5, ease: 'power3.out' }, 0);
+          }
+        } else {
+          // Slide comes in from the right with a sleek inset wipe
           tl.fromTo(slide, 
-            { opacity: 0, y: 80, scale: 0.95 }, 
-            { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out' }, 
-            index - 0.5
+            { clipPath: 'inset(0% 0% 0% 100%)', x: 50, opacity: 0 }, 
+            { clipPath: 'inset(0% 0% 0% 0%)', x: 0, opacity: 1, duration: 1.2, ease: 'power4.inOut' }, 
+            index - 0.4
           );
-          if (progressCircle) {
-            tl.fromTo(progressCircle,
-              { strokeDashoffset: 100 },
-              { strokeDashoffset: targetOffset, duration: 1.2, ease: 'power3.out' },
-              index - 0.2
-            );
+          tl.to(counter, { val: metricValue, duration: 1.5, ease: 'power3.out', onUpdate: updateCounter }, index);
+          if (progressBar) {
+            tl.fromTo(progressBar, { scaleX: 0 }, { scaleX: metricValue / 100, duration: 1.5, ease: 'power3.out' }, index);
           }
         }
 
-        // Fade out previous slide
+        // Slide exits to the left with an inset wipe
         if (index < slidesRef.current.length - 1) {
           tl.to(slide, 
-            { opacity: 0, y: -80, scale: 1.05, duration: 0.8, ease: 'power2.inOut' }, 
-            index + 0.5
+            { clipPath: 'inset(0% 100% 0% 0%)', x: -50, opacity: 0, duration: 1.2, ease: 'power4.inOut' }, 
+            index + 0.6
           );
         }
       });
@@ -157,13 +157,16 @@ export default function Results() {
       </div>
 
       {/* Cinematic Showcase - Pinned Scrollytelling */}
-      <div ref={sectionRef} className="relative h-screen bg-gradient-to-br from-[#F8F5F0] to-[#E8F5E9] overflow-hidden flex items-center">
+      <div ref={sectionRef} className="relative h-screen bg-[#FAFAFA] overflow-hidden flex items-center">
         
         {/* Ambient Glowing Background Layer */}
         <div ref={bgRef} className="absolute inset-0 z-0 overflow-hidden">
+          {/* Tech Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none"></div>
+          
           <div ref={orb1Ref} className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-white/80 rounded-full blur-[120px]"></div>
           <div ref={orb2Ref} className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-[#7AC943]/20 rounded-full blur-[150px] mix-blend-multiply"></div>
-          <div className="absolute top-[30%] left-[30%] w-[40vw] h-[40vw] bg-yellow-100/50 rounded-full blur-[100px] mix-blend-multiply animate-pulse"></div>
+          <div className="absolute top-[30%] left-[30%] w-[40vw] h-[40vw] bg-yellow-100/50 rounded-full blur-[120px] mix-blend-multiply animate-pulse"></div>
           
           {/* Noise texture for premium feel */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
@@ -179,54 +182,34 @@ export default function Results() {
                 className="absolute inset-0 flex flex-col justify-center w-full"
                 style={{ opacity: index === 0 ? 1 : 0 }}
               >
-                <div className="w-full bg-white/90 backdrop-blur-3xl border border-white p-8 md:p-14 rounded-[3rem] shadow-[0_20px_80px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-14">
-                  {/* Subtle background decoration */}
-                  <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#7AC943]/10 rounded-full blur-[80px] pointer-events-none"></div>
+                <div className="w-full bg-white/80 backdrop-blur-3xl border border-white border-l-4 border-l-[#7AC943] p-8 md:p-14 rounded-2xl shadow-[0_20px_80px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-14 group transition-colors duration-700">
+                  {/* Background glow */}
+                  <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-[#7AC943]/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-[#7AC943]/20 transition-colors duration-700 translate-x-1/3 -translate-y-1/3"></div>
 
                   <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start relative z-10">
-                    <div className="inline-flex items-center gap-3 mb-6 bg-gray-50 px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+                    <div className="inline-flex items-center gap-3 mb-6 bg-white px-5 py-2.5 rounded-full border border-gray-100 shadow-sm">
                       <div className="w-8 h-8 rounded-full bg-[#7AC943]/10 flex items-center justify-center text-[#7AC943]">
                         {/* SVG Icon Fallback */}
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                       </div>
-                      <span className="text-gray-700 font-bold tracking-widest uppercase text-xs">Quantifiable Growth</span>
+                      <span className="text-gray-700 font-bold tracking-widest uppercase text-xs">Quantifiable Impact</span>
                     </div>
                     
-                    <h3 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 md:mb-6 tracking-tight">{item.title}</h3>
+                    <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 md:mb-6 tracking-tight">{item.title}</h3>
                     <p className="text-lg md:text-xl text-gray-500 leading-relaxed font-medium">{item.description}</p>
                   </div>
                   
-                  <div className="flex-1 w-full flex justify-center relative z-10">
-                    <div className="relative w-48 h-48 md:w-64 md:h-64 flex flex-col items-center justify-center bg-white rounded-full shadow-[0_10px_40px_rgba(122,201,67,0.15)] border border-gray-50">
-                      {/* Circular Progress SVG */}
-                      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full -rotate-90 overflow-visible">
-                         <circle cx="50" cy="50" r="46" strokeWidth="6" stroke="#f3f4f6" fill="none" />
-                         <circle 
-                           className="progress-circle-fill" 
-                           cx="50" cy="50" r="46" 
-                           strokeWidth="8" 
-                           stroke="url(#greenGradient)" 
-                           fill="none" 
-                           strokeLinecap="round" 
-                           pathLength="100"
-                           strokeDasharray="100"
-                           strokeDashoffset="100" 
-                         />
-                         <defs>
-                           <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                             <stop offset="0%" stopColor="#7AC943" />
-                             <stop offset="100%" stopColor="#059669" /> {/* emerald-600 */}
-                           </linearGradient>
-                         </defs>
-                      </svg>
-                      <div className="relative flex items-start text-gray-900">
-                        <span className="text-6xl md:text-8xl font-black tracking-tighter">
-                          {item.metric.replace('%', '')}
-                        </span>
-                        <span className="text-2xl md:text-4xl font-bold text-[#7AC943] mt-1 md:mt-2">%</span>
-                      </div>
+                  <div className="flex-shrink-0 w-full md:w-auto flex flex-col justify-center items-center md:items-end relative z-10">
+                    <div className="relative flex items-baseline text-gray-900">
+                      <span className="metric-number text-[6rem] md:text-[8rem] font-black tracking-tighter leading-none">
+                        0
+                      </span>
+                      <span className="text-3xl md:text-5xl font-bold text-[#7AC943] ml-2">%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mt-4 relative md:w-64">
+                      <div className="metric-progress-bar absolute top-0 left-0 h-full w-full bg-[#7AC943] origin-left scale-x-0 rounded-full shadow-[0_0_10px_rgba(122,201,67,0.5)]"></div>
                     </div>
                   </div>
                 </div>

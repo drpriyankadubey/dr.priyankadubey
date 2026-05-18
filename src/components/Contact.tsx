@@ -111,7 +111,7 @@ export default function Contact() {
           </div>
 
           {/* Right Form */}
-          <form className="bg-white/60 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] border border-white shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex flex-col gap-6 w-full">
+          <form onSubmit={(e) => e.preventDefault()} className="bg-white/60 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] border border-white shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex flex-col gap-6 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-bold text-gray-700 ml-2">First Name</label>
@@ -135,12 +135,12 @@ export default function Contact() {
             </div>
             
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold text-gray-700 ml-2">Your Message</label>
+              <label className="text-sm font-bold text-gray-700 ml-2">Message</label>
               <textarea rows={4} placeholder="Your Message" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm resize-none"></textarea>
             </div>
             
             <button type="submit" className="mt-2 group relative w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#7AC943] text-white font-bold text-lg rounded-2xl shadow-[0_10px_25px_rgba(122,201,67,0.35)] hover:shadow-[0_15px_35px_rgba(122,201,67,0.5)] hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden">
-              <span className="relative z-10">Request Consultation</span>
+              <span className="relative z-10">SEND</span>
               <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
