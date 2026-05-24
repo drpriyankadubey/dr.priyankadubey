@@ -25,7 +25,7 @@ const staggerContainer: Variants = {
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const leafRefs = useRef<(HTMLImageElement | null)[]>([]);
-  const bowlRef = useRef<HTMLImageElement>(null);
+  const bowlRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -152,13 +152,18 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="pt-4">
-            <button className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#7AC943] text-white font-bold text-lg rounded-full shadow-[0_10px_25px_rgba(122,201,67,0.35)] hover:shadow-[0_15px_35px_rgba(122,201,67,0.5)] hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden">
+            <a 
+              href="https://wa.me/918223800785?text=Hello!%20I%20would%20like%20to%20request%20a%20demo."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#7AC943] text-white font-bold text-lg rounded-full shadow-[0_10px_25px_rgba(122,201,67,0.35)] hover:shadow-[0_15px_35px_rgba(122,201,67,0.5)] hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden"
+            >
               <span className="relative z-10">SEE DEMO</span>
               <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
-            </button>
+            </a>
           </motion.div>
         </motion.div>
 
@@ -175,17 +180,24 @@ export default function Hero() {
             <path fill="currentColor" d="M45.7,-76.3C58.9,-69.3,68.9,-54.8,77.3,-40.1C85.7,-25.4,92.5,-10.4,91.3,4.2C90.2,18.8,81.1,33,70.5,44.7C59.9,56.4,47.8,65.6,34.2,72.2C20.6,78.8,5.4,82.9,-8.9,81.6C-23.2,80.3,-36.5,73.6,-48.5,64.8C-60.5,56,-71.2,45,-78.6,31.7C-86,18.4,-90.1,2.8,-87.3,-11.5C-84.5,-25.8,-74.8,-38.8,-63.4,-49.6C-52,-60.4,-39,-69,-25.4,-74.3C-11.8,-79.6,2.3,-81.6,16.5,-79.9C30.7,-78.2,45.7,-76.3,45.7,-76.3Z" transform="translate(100 100)" />
           </svg>
 
-          {/* Realistic Bowl Image */}
-          <img 
-            ref={bowlRef}
-            src="/leaf-3.png" 
-            alt="Large organic leaf" 
-            className="w-3/4 max-w-sm lg:max-w-md h-auto object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.2)] z-10 mx-auto"
-            // Fallback if local image doesn't exist
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://freepngimg.com/thumb/salad/29505-7-salad-transparent-background.png';
-            }}
-          />
+          {/* Logo Image with Stylish Container */}
+          <div ref={bowlRef} className="relative z-10 mx-auto w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 group cursor-pointer">
+            {/* Rotating dashed ring */}
+            <div className="absolute inset-0 rounded-full border-[3px] border-dashed border-[#7AC943]/60 animate-[spin_20s_linear_infinite] scale-110 pointer-events-none transition-all duration-700 group-hover:scale-125 group-hover:border-[#7AC943]"></div>
+            
+            {/* Inner glowing pulsating ring */}
+            <div className="absolute inset-0 rounded-full border-2 border-[#7AC943]/30 animate-pulse scale-105 shadow-[0_0_30px_rgba(122,201,67,0.4)] pointer-events-none transition-all duration-700 group-hover:shadow-[0_0_50px_rgba(122,201,67,0.6)] group-hover:border-[#7AC943]/80"></div>
+            
+            {/* Core Image */}
+            <img 
+              src="/logo.png" 
+              alt="Brand Logo" 
+              className="w-full h-full object-cover rounded-full border-8 border-white shadow-[0_20px_50px_rgba(122,201,67,0.3)] relative z-10 transition-transform duration-700 group-hover:scale-105 bg-white"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = 'https://freepngimg.com/thumb/salad/29505-7-salad-transparent-background.png';
+              }}
+            />
+          </div>
         </motion.div>
 
       </div>

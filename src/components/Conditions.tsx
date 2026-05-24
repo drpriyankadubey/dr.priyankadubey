@@ -1,50 +1,45 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Droplets, HeartPulse, Shield, CircleDot } from 'lucide-react';
+import { Monitor, Moon, Zap, Brain, Heart, Activity, Stethoscope } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const conditions = [
   {
-    icon: Droplets,
-    title: 'Diabetes',
-    description: 'Type 2 Diabetes reversal through targeted nutrition and lifestyle modification.',
+    icon: Monitor,
+    title: 'IT Professional Health Reset',
+    description: 'Tailored nutrition and lifestyle protocols for sedentary IT professionals.',
   },
   {
-    icon: HeartPulse,
-    title: 'Cardiovascular',
-    description: 'Heart health optimization with evidence-based dietary interventions.',
+    icon: Moon,
+    title: 'Night Shift Wellness Program',
+    description: 'Circadian rhythm alignment and energy management for night shift workers.',
   },
   {
-    icon: Shield,
-    title: 'Thyroid',
-    description: 'Thyroid balance restoration via micronutrient therapy and gut healing.',
+    icon: Zap,
+    title: 'Executive Energy & Performance',
+    description: 'High-performance nutrition for executives to sustain peak mental and physical energy.',
   },
   {
-    icon: CircleDot,
-    title: 'PCOS',
-    description: 'Hormonal harmony through anti-inflammatory nutrition protocols.',
+    icon: Brain,
+    title: 'Stress & Lifestyle Management',
+    description: 'Holistic approaches to reduce cortisol and manage chronic stress effectively.',
   },
   {
-    icon: Droplets,
-    title: 'Fatty Liver',
-    description: 'Liver recovery programs reversing NAFLD with precision nutrition.',
+    icon: Heart,
+    title: 'Women’s Corporate Wellness',
+    description: 'Specialized programs addressing hormonal balance and wellness for corporate women.',
   },
   {
-    icon: HeartPulse,
-    title: 'Hypertension',
-    description: 'Blood pressure normalization through DASH-style dietary protocols.',
+    icon: Activity,
+    title: 'Metabolic Health & Belly Fat',
+    description: 'Targeted metabolic resets to reduce visceral fat and improve metabolic flexibility.',
   },
   {
-    icon: Shield,
-    title: 'IBS / IBD',
-    description: 'Gut restoration using elimination protocols and microbiome support.',
-  },
-  {
-    icon: CircleDot,
-    title: 'Metabolic Syndrome',
-    description: 'Comprehensive metabolic reset addressing insulin resistance and inflammation.',
+    icon: Stethoscope,
+    title: 'Diabetes & Preventive Health',
+    description: 'Comprehensive protocols for reversing and preventing type 2 diabetes.',
   },
 ];
 
@@ -113,13 +108,13 @@ export default function Conditions() {
           </p>
         </div>
 
-        <div className="conditions-grid grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="conditions-grid flex flex-wrap justify-center gap-4 md:gap-6">
           {conditions.map((condition, i) => {
             const Icon = condition.icon;
             return (
               <div
                 key={i}
-                className="condition-card bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-2xl p-6 text-center group hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all duration-500 cursor-default"
+                className="condition-card flex flex-col items-center w-[calc(50%-0.5rem)] md:w-[calc(25%-1.125rem)] bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-2xl p-6 text-center group hover:shadow-[0_0_20px_rgba(46,204,113,0.3)] transition-all duration-500 cursor-default"
               >
                 <div className="condition-icon-float w-12 h-12 rounded-2xl bg-sage-green/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-sage-green/20 transition-colors duration-300">
                   <Icon size={24} className="text-sage-green" />

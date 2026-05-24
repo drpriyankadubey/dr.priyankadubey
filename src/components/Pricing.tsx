@@ -14,8 +14,8 @@ const staggerContainer: Variants = {
 const plans = [
   {
     name: "Sprout",
-    price: "500",
-    duration: "/mo",
+    price: "Enquire Now",
+    duration: "",
     subtitle: "Kickstart your journey",
     description: "Perfect for individuals looking to build foundational healthy habits and gain momentum.",
     features: ["Customized Meal Plan", "Basic Grocery List", "Weekly Email Check-in", "Community Group Access"],
@@ -23,8 +23,8 @@ const plans = [
   },
   {
     name: "Thrive",
-    price: "1000",
-    duration: "/mo",
+    price: "Enquire Now",
+    duration: "",
     subtitle: "Total Transformation",
     description: "A comprehensive disease reversal protocol with close monitoring and holistic coaching.",
     features: ["Advanced Clinical Diet", "Daily WhatsApp Support", "Bi-weekly 1-on-1 Call", "Personalized Recipe Book", "Progress Analytics"],
@@ -32,8 +32,8 @@ const plans = [
   },
   {
     name: "Flourish",
-    price: "1500",
-    duration: "/3 mos",
+    price: "Enquire Now",
+    duration: "",
     subtitle: "Holistic Mentorship",
     description: "Ultimate hand-holding for long-term lifestyle optimization and sustainable disease reversal.",
     features: ["Everything in Thrive", "Complete Bloodwork Analysis", "Mindset & Sleep Coaching", "24/7 Priority Access", "Post-Program Maintenance"],
@@ -108,11 +108,23 @@ export default function Pricing() {
                 </p>
               </div>
 
-              <div className="mb-8 flex items-baseline gap-1">
-                <span className="text-5xl font-extrabold tracking-tight">{plan.price}</span>
-                <span className={`text-lg font-medium ${plan.isPopular ? "text-white/80" : "text-gray-400"}`}>
-                  {plan.duration}
-                </span>
+              <div className="mb-8">
+                <a 
+                  href={`https://wa.me/918223800785?text=Hello!%20I%20would%20like%20to%20enquire%20about%20the%20${plan.name}%20plan.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 font-bold text-lg rounded-full shadow-md hover:shadow-xl transition-all duration-300 ease-out overflow-hidden ${
+                    plan.isPopular 
+                      ? "bg-white text-[#7AC943] hover:-translate-y-1" 
+                      : "bg-[#7AC943] text-white hover:-translate-y-1"
+                  }`}
+                >
+                  <span className="relative z-10">{plan.price}</span>
+                  <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                  <div className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0 ${plan.isPopular ? "bg-gray-100" : "bg-black/10"}`}></div>
+                </a>
               </div>
 
               <p className={`mb-8 leading-relaxed ${plan.isPopular ? "text-white/90" : "text-gray-500"}`}>

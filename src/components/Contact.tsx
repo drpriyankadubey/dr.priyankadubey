@@ -90,7 +90,7 @@ export default function Contact() {
                 </div>
                 <div className="overflow-hidden">
                   <p className="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Email</p>
-                  <p className="text-base md:text-lg font-bold text-gray-900 truncate">contact@drpriyankadubey.com</p>
+                  <p className="text-base md:text-lg font-bold text-gray-900 truncate">appointmentdrdubey@gmail.com</p>
                 </div>
               </div>
 
@@ -104,7 +104,7 @@ export default function Contact() {
                 </div>
                 <div className="overflow-hidden">
                   <p className="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Location</p>
-                  <p className="text-base md:text-lg font-bold text-gray-900 truncate">Mumbai, India</p>
+                  <p className="text-base md:text-lg font-bold text-gray-900 truncate">Indore, India</p>
                 </div>
               </div>
             </div>

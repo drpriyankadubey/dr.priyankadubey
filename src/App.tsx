@@ -8,6 +8,7 @@ import Pillars from './components/Pillars';
 import Results from './components/Results';
 import ProblemSolution from './components/ProblemSolution';
 import Gallery from './components/Gallery';
+import FAQ from './components/FAQ';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 
@@ -26,6 +27,7 @@ function App() {
           <Results />
           <ProblemSolution />
           <Gallery />
+          <FAQ />
           <Pricing />
           <Contact />
         </main>

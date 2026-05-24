@@ -102,23 +102,23 @@ export default function Expertise() {
       <div className="absolute bottom-[10%] left-[15%] w-64 h-64 bg-[url('/images/ingredients/tomato.png')] bg-contain bg-center bg-no-repeat opacity-40 blur-[6px] pointer-events-none z-0"></div>
       <div className="absolute top-[5%] right-[20%] w-48 h-48 bg-[url('/images/ingredients/fresh-veg.png')] bg-contain bg-center bg-no-repeat opacity-30 blur-[4px] pointer-events-none z-0"></div>
       
-      <div className="px-8 md:px-16 lg:px-24 mb-12 shrink-0 relative z-10">
+      <div className="px-6 sm:px-8 md:px-16 lg:px-24 mb-8 md:mb-12 shrink-0 relative z-10">
         <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
           Clinical Excellence
         </span>
-        <h2 className="text-5xl md:text-6xl font-black text-gray-900 leading-tight">
-          Clinical precision meets <br/>
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-snug md:leading-tight">
+          Clinical precision meets <br className="hidden md:block"/>
           <span className="text-primary">vital restoration.</span>
         </h2>
       </div>
 
       {/* Horizontal Scroll Container */}
-      <div ref={containerRef} className="flex gap-8 px-8 md:px-16 lg:px-24 w-[200vw] sm:w-[150vw] lg:w-[120vw] items-center relative z-10">
+      <div ref={containerRef} className="flex gap-6 sm:gap-8 px-6 sm:px-8 md:px-16 lg:px-24 w-[220vw] sm:w-[150vw] lg:w-[120vw] items-center relative z-10">
         {expertiseData.map((item, index) => (
           <div 
             key={index}
             ref={el => cardsRef.current[index] = el}
-            className="w-[300px] sm:w-[350px] shrink-0 bg-white/30 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] perspective-grid preserve-3d group relative"
+            className="w-[280px] sm:w-[350px] shrink-0 bg-white/30 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.1)] perspective-grid preserve-3d group relative"
           >
             {/* Progress bar line top */}
             <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />

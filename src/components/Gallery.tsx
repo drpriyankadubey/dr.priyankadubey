@@ -164,7 +164,7 @@ export default function Gallery() {
           {/* Image Card */}
           <motion.div variants={itemAnim} onClick={() => setActiveGalleryType('image')} className="relative w-full aspect-video rounded-3xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 bg-gray-200 cursor-pointer">
             <AnimatePresence mode="wait">
-              <motion.img key={currentImageIndex} src={images[currentImageIndex]?.src} initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0 w-full h-full object-cover" />
+              <motion.img key={currentImageIndex} src={images[currentImageIndex]?.src} initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0 w-full h-full object-cover object-top" />
             </AnimatePresence>
           </motion.div>
 
@@ -172,7 +172,7 @@ export default function Gallery() {
           {videos.length > 0 && (
             <motion.div variants={itemAnim} onClick={() => setActiveGalleryType('video')} className="relative w-full aspect-video rounded-3xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 bg-gray-200 cursor-pointer">
               <AnimatePresence mode="wait">
-                <motion.video key={currentVideoIndex} src={videos[currentVideoIndex]?.src} autoPlay loop muted playsInline initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0 w-full h-full object-cover" />
+                <motion.video key={currentVideoIndex} src={videos[currentVideoIndex]?.src} autoPlay loop muted playsInline initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="absolute inset-0 w-full h-full object-cover object-top" />
               </AnimatePresence>
             </motion.div>
           )}
@@ -199,9 +199,9 @@ export default function Gallery() {
                 {currentModalData.map((item, idx) => (
                   <div key={item.id} onClick={() => setFullScreenIndex(idx)} className="relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 bg-gray-100">
                     {item.type === 'video' ? (
-                    <video src={item.src} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" muted loop playsInline onMouseEnter={(e) => e.currentTarget.play()} onMouseLeave={(e) => e.currentTarget.pause()} />
+                    <video src={item.src} className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500" muted loop playsInline onMouseEnter={(e) => e.currentTarget.play()} onMouseLeave={(e) => e.currentTarget.pause()} />
                     ) : (
-                      <img src={item.src} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <img src={item.src} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500" />
                     )}
                   </div>
                 ))}
