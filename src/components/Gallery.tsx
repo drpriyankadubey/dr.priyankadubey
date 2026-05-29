@@ -12,7 +12,7 @@ const galleryData = [
   { id: 6, type: 'image', src: '/img/6.jpeg' },
   { id: 7, type: 'image', src: '/img/7.jpeg' },
   { id: 8, type: 'image', src: '/img/8.jpeg' },
-  { id: 9, type: 'image', src: '/img/9.jpeg' },
+  { id: 9, type: 'image', src: '/img/9.jpg' },
   { id: 10, type: 'image', src: '/img/10.jpg' },
   { id: 11, type: 'image', src: '/img/11.jpg' },
   { id: 12, type: 'image', src: '/img/12.jpg' },
@@ -25,9 +25,7 @@ const galleryData = [
   { id: 19, type: 'image', src: '/img/21.jpg' },
   { id: 20, type: 'image', src: '/img/22.jpg' },
   { id: 21, type: 'image', src: '/img/23.jpg' },
-  { id: 22, type: 'image', src: '/img/24.jpg' },
-  { id: 23, type: 'image', src: '/img/25.jpg' },
-  { id: 24, type: 'image', src: '/img/26.jpg' },
+
   
   // Videos
   { id: 25, type: 'video', src: '/video/1.mp4' },
