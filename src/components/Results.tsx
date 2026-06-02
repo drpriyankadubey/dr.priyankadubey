@@ -1,9 +1,3 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 const showcaseData = [
   {
     title: 'Energy Restoration',
@@ -26,86 +20,6 @@ const showcaseData = [
 ];
 
 export default function Results() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
-  const bgRef = useRef<HTMLDivElement>(null);
-  const orb1Ref = useRef<HTMLDivElement>(null);
-  const orb2Ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Pin the whole showcase section
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: '+=300%', // 3x height to allow enough scroll for 3 slides
-          pin: true,
-          scrub: 1,
-        },
-      });
-
-      // Parallax for the background
-      tl.to(bgRef.current, { y: -50, duration: 3, ease: 'none' }, 0);
-      
-      // Ambient Orbs movement effect
-      if (orb1Ref.current && orb2Ref.current) {
-        tl.fromTo(orb1Ref.current, 
-          { scale: 1, x: 0, y: 0 }, 
-          { scale: 1.5, x: '20vw', y: '10vh', duration: 3, ease: 'power1.inOut' }, 0
-        );
-        tl.fromTo(orb2Ref.current, 
-          { scale: 1, x: 0, y: 0 }, 
-          { scale: 1.3, x: '-20vw', y: '-15vh', duration: 3, ease: 'power1.inOut' }, 0
-        );
-      }
-
-      // Sleek clip-path wipe animation with number counters
-      slidesRef.current.forEach((slide, index) => {
-        if (!slide) return;
-        
-        const numberEl = slide.querySelector('.metric-number');
-        const progressBar = slide.querySelector('.metric-progress-bar');
-        const metricValue = parseInt(showcaseData[index].metric);
-        
-        // Custom object to animate the number counter
-        const counter = { val: 0 };
-        const updateCounter = () => {
-          if (numberEl) numberEl.innerHTML = Math.round(counter.val).toString();
-        };
-
-        if (index === 0) {
-          // Slide 0 starts visible, just animate the inner contents
-          tl.to(counter, { val: metricValue, duration: 1.5, ease: 'power3.out', onUpdate: updateCounter }, 0);
-          if (progressBar) {
-            tl.fromTo(progressBar, { scaleX: 0 }, { scaleX: metricValue / 100, duration: 1.5, ease: 'power3.out' }, 0);
-          }
-        } else {
-          // Slide comes in from the right with a sleek inset wipe
-          tl.fromTo(slide, 
-            { clipPath: 'inset(0% 0% 0% 100%)', x: 50, opacity: 0 }, 
-            { clipPath: 'inset(0% 0% 0% 0%)', x: 0, opacity: 1, duration: 1.2, ease: 'power4.inOut' }, 
-            index - 0.4
-          );
-          tl.to(counter, { val: metricValue, duration: 1.5, ease: 'power3.out', onUpdate: updateCounter }, index);
-          if (progressBar) {
-            tl.fromTo(progressBar, { scaleX: 0 }, { scaleX: metricValue / 100, duration: 1.5, ease: 'power3.out' }, index);
-          }
-        }
-
-        // Slide exits to the left with an inset wipe
-        if (index < slidesRef.current.length - 1) {
-          tl.to(slide, 
-            { clipPath: 'inset(0% 100% 0% 0%)', x: -50, opacity: 0, duration: 1.2, ease: 'power4.inOut' }, 
-            index + 0.6
-          );
-        }
-      });
-
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section className="relative pt-20 bg-white/10">
@@ -156,16 +70,16 @@ export default function Results() {
         </div>
       </div>
 
-      {/* Cinematic Showcase - Pinned Scrollytelling */}
-      <div ref={sectionRef} className="relative h-screen bg-[#FAFAFA] overflow-hidden flex items-center">
+      {/* Cinematic Showcase - Static Grid */}
+      <div className="relative py-24 bg-[#FAFAFA] overflow-hidden">
         
         {/* Ambient Glowing Background Layer */}
-        <div ref={bgRef} className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           {/* Tech Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)] pointer-events-none"></div>
           
-          <div ref={orb1Ref} className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-white/80 rounded-full blur-[120px]"></div>
-          <div ref={orb2Ref} className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-[#7AC943]/20 rounded-full blur-[150px] mix-blend-multiply"></div>
+          <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-white/80 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] bg-[#7AC943]/20 rounded-full blur-[150px] mix-blend-multiply"></div>
           <div className="absolute top-[30%] left-[30%] w-[40vw] h-[40vw] bg-yellow-100/50 rounded-full blur-[120px] mix-blend-multiply animate-pulse"></div>
           
           {/* Noise texture for premium feel */}
@@ -174,43 +88,37 @@ export default function Results() {
 
         {/* Slides Content Layer */}
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 w-full">
-          <div className="w-full max-w-4xl mx-auto relative h-[600px] md:h-[500px] flex items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {showcaseData.map((item, index) => (
               <div 
                 key={index}
-                ref={el => slidesRef.current[index] = el}
-                className="absolute inset-0 flex flex-col justify-center w-full"
-                style={{ opacity: index === 0 ? 1 : 0 }}
+                className="w-full bg-white/80 backdrop-blur-3xl border border-white border-t-4 border-t-[#7AC943] md:border-t-0 md:border-l-4 md:border-l-[#7AC943] p-8 md:p-10 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] relative overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="w-full bg-white/80 backdrop-blur-3xl border border-white border-l-4 border-l-[#7AC943] p-8 md:p-14 rounded-2xl shadow-[0_20px_80px_rgba(0,0,0,0.08)] relative overflow-hidden flex flex-col md:flex-row items-center gap-8 md:gap-14 group transition-colors duration-700">
-                  {/* Background glow */}
-                  <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-[#7AC943]/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-[#7AC943]/20 transition-colors duration-700 translate-x-1/3 -translate-y-1/3"></div>
+                {/* Background glow */}
+                <div className="absolute top-0 right-0 w-[20rem] h-[20rem] bg-[#7AC943]/5 rounded-full blur-[80px] pointer-events-none group-hover:bg-[#7AC943]/15 transition-colors duration-700 translate-x-1/3 -translate-y-1/3"></div>
 
-                  <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start relative z-10">
-                    <div className="inline-flex items-center gap-3 mb-6 bg-white px-5 py-2.5 rounded-full border border-gray-100 shadow-sm">
-                      <div className="w-8 h-8 rounded-full bg-[#7AC943]/10 flex items-center justify-center text-[#7AC943]">
-                        {/* SVG Icon Fallback */}
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                           <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-700 font-bold tracking-widest uppercase text-xs">Quantifiable Impact</span>
-                    </div>
-                    
-                    <h3 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 md:mb-6 tracking-tight">{item.title}</h3>
-                    <p className="text-lg md:text-xl text-gray-500 leading-relaxed font-medium">{item.description}</p>
+                <div className="inline-flex items-center gap-3 mb-6 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm w-fit">
+                  <div className="w-6 h-6 rounded-full bg-[#7AC943]/10 flex items-center justify-center text-[#7AC943]">
+                    {/* SVG Icon Fallback */}
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                       <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
-                  
-                  <div className="flex-shrink-0 w-full md:w-auto flex flex-col justify-center items-center md:items-end relative z-10">
-                    <div className="relative flex items-baseline text-gray-900">
-                      <span className="metric-number text-[6rem] md:text-[8rem] font-black tracking-tighter leading-none">
-                        0
-                      </span>
-                      <span className="text-3xl md:text-5xl font-bold text-[#7AC943] ml-2">%</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mt-4 relative md:w-64">
-                      <div className="metric-progress-bar absolute top-0 left-0 h-full w-full bg-[#7AC943] origin-left scale-x-0 rounded-full shadow-[0_0_10px_rgba(122,201,67,0.5)]"></div>
-                    </div>
+                  <span className="text-gray-700 font-bold tracking-widest uppercase text-[10px]">Quantifiable Impact</span>
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-3 tracking-tight">{item.title}</h3>
+                <p className="text-base text-gray-500 leading-relaxed font-medium mb-8 flex-grow">{item.description}</p>
+                
+                <div className="w-full flex flex-col justify-end mt-auto">
+                  <div className="relative flex items-baseline text-gray-900 mb-2">
+                    <span className="text-5xl font-black tracking-tighter leading-none">
+                      {item.metric.replace('%', '')}
+                    </span>
+                    <span className="text-2xl font-bold text-[#7AC943] ml-1">%</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden relative">
+                    <div className="h-full bg-[#7AC943] rounded-full shadow-[0_0_10px_rgba(122,201,67,0.5)]" style={{ width: item.metric }}></div>
                   </div>
                 </div>
               </div>
