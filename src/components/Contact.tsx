@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useForm, ValidationError } from '@formspree/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [state, handleSubmit] = useForm("meedyral");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -111,41 +113,62 @@ export default function Contact() {
           </div>
 
           {/* Right Form */}
-          <form onSubmit={(e) => e.preventDefault()} className="bg-white/60 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] border border-white shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex flex-col gap-6 w-full">
+          <form onSubmit={handleSubmit} className="bg-white/60 backdrop-blur-xl p-8 md:p-10 rounded-[2.5rem] border border-white shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex flex-col gap-6 w-full min-h-[500px] justify-center">
+            {state.succeeded ? (
+              <div className="flex flex-col items-center justify-center text-center space-y-4 animate-in fade-in zoom-in duration-500">
+                <div className="w-20 h-20 bg-[#7AC943]/20 text-[#7AC943] rounded-full flex items-center justify-center mb-2">
+                  <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 tracking-tight">Message Sent!</h3>
+                <p className="text-gray-600 font-medium text-lg">Thank you for reaching out. We will get back to you shortly.</p>
+              </div>
+            ) : (
+              <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-gray-700 ml-2">First Name</label>
-                <input type="text" placeholder="First Name" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <label htmlFor="firstName" className="text-sm font-bold text-gray-700 ml-2">First Name</label>
+                <input id="firstName" name="firstName" type="text" required placeholder="First Name" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <ValidationError prefix="First Name" field="firstName" errors={state.errors} />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-gray-700 ml-2">Last Name</label>
-                <input type="text" placeholder="Last Name" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <label htmlFor="lastName" className="text-sm font-bold text-gray-700 ml-2">Last Name</label>
+                <input id="lastName" name="lastName" type="text" required placeholder="Last Name" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <ValidationError prefix="Last Name" field="lastName" errors={state.errors} />
               </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-gray-700 ml-2">Email Address</label>
-                <input type="email" placeholder="Email Address" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <label htmlFor="email" className="text-sm font-bold text-gray-700 ml-2">Email Address</label>
+                <input id="email" name="email" type="email" required placeholder="Email Address" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-gray-700 ml-2">Phone Number</label>
-                <input type="tel" placeholder="Phone Number" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <label htmlFor="phone" className="text-sm font-bold text-gray-700 ml-2">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="Phone Number" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm" />
+                <ValidationError prefix="Phone" field="phone" errors={state.errors} />
               </div>
             </div>
             
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-bold text-gray-700 ml-2">Message</label>
-              <textarea rows={4} placeholder="Your Message" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm resize-none"></textarea>
+              <label htmlFor="message" className="text-sm font-bold text-gray-700 ml-2">Message</label>
+              <textarea id="message" name="message" required rows={4} placeholder="Your Message" className="w-full px-5 py-4 rounded-2xl bg-white/80 border border-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7AC943]/50 focus:bg-white transition-all shadow-sm resize-none"></textarea>
+              <ValidationError prefix="Message" field="message" errors={state.errors} />
             </div>
             
-            <button type="submit" className="mt-2 group relative w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#7AC943] text-white font-bold text-lg rounded-2xl shadow-[0_10px_25px_rgba(122,201,67,0.35)] hover:shadow-[0_15px_35px_rgba(122,201,67,0.5)] hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden">
-              <span className="relative z-10">SEND</span>
-              <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+            <button type="submit" disabled={state.submitting} className="mt-2 group relative w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#7AC943] text-white font-bold text-lg rounded-2xl shadow-[0_10px_25px_rgba(122,201,67,0.35)] hover:shadow-[0_15px_35px_rgba(122,201,67,0.5)] hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed">
+              <span className="relative z-10">{state.submitting ? 'SENDING...' : 'SEND'}</span>
+              {!state.submitting && (
+                <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              )}
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
             </button>
+              </>
+            )}
           </form>
 
         </div>
