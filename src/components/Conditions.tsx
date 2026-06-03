@@ -130,7 +130,7 @@ export default function Conditions() {
     <section
       ref={sectionRef}
       id="conditions"
-      className="relative section-padding overflow-hidden bg-white/10"
+      className="relative pt-8 pb-24 lg:pb-32 overflow-hidden bg-white/10"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-sage-green/5 to-white/10" />
 

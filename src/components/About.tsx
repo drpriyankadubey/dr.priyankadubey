@@ -44,7 +44,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-[#FAFAFA] relative overflow-hidden selection:bg-[#7AC943] selection:text-white">
+    <section id="about" className="pt-24 lg:pt-32 pb-8 bg-[#FAFAFA] relative overflow-hidden selection:bg-[#7AC943] selection:text-white">
       {/* Subtle Texture */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-0"></div>
       <div className="absolute top-0 left-1/4 w-[30rem] h-[30rem] bg-[#7AC943]/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
@@ -67,7 +67,7 @@ export default function About() {
       
       {/* 2. Auto-Cycling Timeline Card */}
       <div className="relative w-full z-10 py-4 flex flex-col items-center">
-        <div className="h-[380px] sm:h-[300px] w-full flex items-center justify-center relative">
+        <div className="h-[450px] sm:h-[380px] w-full flex items-center justify-center relative">
           <AnimatePresence>
             <motion.div 
               key={currentIndex}
@@ -75,20 +75,20 @@ export default function About() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -60 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute w-[90%] max-w-[650px] bg-white/80 backdrop-blur-2xl p-8 sm:p-10 rounded-[2.5rem] border border-white shadow-[0_15px_40px_rgba(0,0,0,0.06)] flex flex-col sm:flex-row gap-6 sm:gap-8 items-center text-center sm:text-left"
+              className="absolute w-[95%] max-w-[850px] bg-white/80 backdrop-blur-2xl p-10 sm:p-14 rounded-[3rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex flex-col sm:flex-row gap-8 sm:gap-12 items-center text-center sm:text-left"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#7AC943]/10 flex items-center justify-center shrink-0 border border-[#7AC943]/20 text-[#7AC943] mb-2 sm:mb-0">
+              <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-[#7AC943]/10 flex items-center justify-center shrink-0 border border-[#7AC943]/20 text-[#7AC943] mb-4 sm:mb-0">
                  {/* Fallback svg icons for material symbols */}
-                 {currentIndex === 0 && <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
-                 {currentIndex === 1 && <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
-                 {currentIndex === 2 && <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
-                 {currentIndex === 3 && <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
+                 {currentIndex === 0 && <svg className="w-10 h-10 sm:w-14 sm:h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
+                 {currentIndex === 1 && <svg className="w-10 h-10 sm:w-14 sm:h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
+                 {currentIndex === 2 && <svg className="w-10 h-10 sm:w-14 sm:h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+                 {currentIndex === 3 && <svg className="w-10 h-10 sm:w-14 sm:h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
               </div>
               <div className="flex-1">
-                <span className="text-[#7AC943] font-bold text-sm tracking-widest uppercase mb-2 block font-inter">{timelineItems[currentIndex].period}</span>
-                <h3 className="text-3xl font-playfair font-black text-gray-900 mb-2">{timelineItems[currentIndex].title}</h3>
-                <p className="text-[#7AC943] font-inter font-bold mb-3">{timelineItems[currentIndex].role}</p>
-                <p className="text-gray-500 leading-relaxed font-inter font-medium text-base sm:text-lg">{timelineItems[currentIndex].description}</p>
+                <span className="text-[#7AC943] font-bold text-sm sm:text-base tracking-widest uppercase mb-3 block font-inter">{timelineItems[currentIndex].period}</span>
+                <h3 className="text-3xl sm:text-4xl font-playfair font-black text-gray-900 mb-3">{timelineItems[currentIndex].title}</h3>
+                <p className="text-[#7AC943] font-inter font-bold mb-4 text-base sm:text-xl">{timelineItems[currentIndex].role}</p>
+                <p className="text-gray-500 leading-relaxed font-inter font-medium text-base sm:text-xl">{timelineItems[currentIndex].description}</p>
               </div>
             </motion.div>
           </AnimatePresence>
