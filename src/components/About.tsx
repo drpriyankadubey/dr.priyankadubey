@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import FeatureCards from './FeatureCards'; // Import the new component
 
 const timelineItems = [
   {
@@ -107,30 +108,6 @@ export default function About() {
           ))}
         </div>
       </div>
-
-      {/* Feature Cards Centered Below */}
-      <div className="mt-12 lg:mt-16 flex justify-center w-full px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
-            <div className="p-6 bg-white/80 backdrop-blur-2xl rounded-2xl border border-white shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(122,201,67,0.1)] flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1">
-              <div className="text-[#7AC943] mb-3 w-12 h-12 bg-[#7AC943]/10 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                </svg>
-              </div>
-              <h4 className="font-bold text-gray-900 mb-1">Research Driven</h4>
-              <p className="text-sm text-gray-500 font-medium">Evidence-based protocols only.</p>
-            </div>
-            <div className="p-6 bg-white/80 backdrop-blur-2xl rounded-2xl border border-white shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(122,201,67,0.1)] flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1">
-              <div className="text-[#7AC943] mb-3 w-12 h-12 bg-[#7AC943]/10 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h4 className="font-bold text-gray-900 mb-1">Holistic Care</h4>
-              <p className="text-sm text-gray-500 font-medium">Focus on root-cause reversal.</p>
-            </div>
-          </div>
-        </div>
     </section>
   );
 }
