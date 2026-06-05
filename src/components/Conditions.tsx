@@ -12,6 +12,23 @@ const conditions = [
     title: 'IT Professional Health Reset',
     shortDescription: 'Tailored nutrition and lifestyle protocols for sedentary IT professionals.',
     detailedDescription: 'Designed for desk-job professionals to improve energy, posture, digestion, sleep, and sustainable weight management despite long screen hours.',
+    keyHighlights: [
+      'Weight Management',
+      'Neck, Back & Posture Health',
+      'Eye Fatigue Reduction',
+      'Energy Optimization',
+      'Healthy Eating During Work Hours',
+      'Stress Management'
+    ],
+    evaluationTitle: 'Wellness Evaluation',
+    evaluationItems: [
+      'BMI & Body Composition Assessment',
+      'Waist Circumference Measurement',
+      'Posture & Musculoskeletal Assessment',
+      'Screen Time & Eye Strain Assessment',
+      'Stress Score Assessment',
+      'Physical Activity Assessment'
+    ],
     media: [
       { type: 'video', src: '/video/it.mp4' }
     ]
@@ -21,6 +38,23 @@ const conditions = [
     title: 'Night Shift Wellness Program',
     shortDescription: 'Circadian rhythm alignment and energy management for night shift workers.',
     detailedDescription: 'Helps night workers balance hormones, improve sleep quality, reduce fatigue, and maintain healthy eating patterns during irregular schedules.',
+    keyHighlights: [
+      'Sleep & Recovery Strategies',
+      'Hormonal Balance',
+      'Energy Management',
+      'Healthy Shift-Work Nutrition',
+      'Weight Control',
+      'Digestive Health'
+    ],
+    evaluationTitle: '360° Health Transformation',
+    evaluationItems: [
+      'Sleep Quality Assessment',
+      'Fatigue & Energy Score Assessment',
+      'Circadian Rhythm Evaluation',
+      'Eating Pattern Assessment',
+      'Stress Assessment',
+      'Weight & Metabolic Risk Screening'
+    ],
     media: [
       { type: 'video', src: '/video/ns.mp4' }
     ]
@@ -30,6 +64,23 @@ const conditions = [
     title: 'Executive Energy & Performance Reset',
     shortDescription: 'High-performance nutrition for executives to sustain peak mental and physical energy.',
     detailedDescription: 'A premium wellness program focused on boosting stamina, focus, productivity, stress resilience, and overall peak performance for leaders and executives.',
+    keyHighlights: [
+      'Peak Performance Nutrition',
+      'Mental Focus & Productivity',
+      'Executive Health Screening',
+      'Stress Resilience',
+      'Energy Enhancement',
+      'Sustainable Lifestyle Habits'
+    ],
+    evaluationTitle: 'Wellness Blueprint',
+    evaluationItems: [
+      'Executive Health Risk Assessment',
+      'Energy & Productivity Score',
+      'Stress & Burnout Assessment',
+      'Body Composition Analysis',
+      'Lifestyle Risk Assessment',
+      'Nutrition & Hydration Evaluation'
+    ],
     media: [
       { type: 'image', src: '/img/15.jpg' },
       { type: 'video', src: '/video/2.mp4' }
@@ -40,6 +91,23 @@ const conditions = [
     title: 'Stress & Lifestyle Management Program',
     shortDescription: 'Holistic approaches to reduce cortisol and manage chronic stress effectively.',
     detailedDescription: 'Supports professionals in managing stress, emotional eating, burnout, poor sleep, and unhealthy lifestyle habits through practical wellness strategies.',
+    keyHighlights: [
+      'Stress Reduction Techniques',
+      'Emotional Eating Control',
+      'Sleep Improvement',
+      'Work-Life Balance',
+      'Mindfulness Practices',
+      'Burnout Prevention'
+    ],
+    evaluationTitle: '360° Health Transformation',
+    evaluationItems: [
+      'Perceived Stress Assessment',
+      'Emotional Eating Assessment',
+      'Sleep Quality Questionnaire',
+      'Work-Life Balance Assessment',
+      'Lifestyle Habits Evaluation',
+      'Mental Wellbeing Screening'
+    ],
     media: [
       { type: 'video', src: '/video/st.mp4' }
     ]
@@ -49,6 +117,23 @@ const conditions = [
     title: 'Women’s Corporate Wellness Program',
     shortDescription: 'Specialized programs addressing hormonal balance and wellness for corporate women.',
     detailedDescription: 'Tailored for working women to balance hormones, manage weight, improve energy, reduce PCOS/thyroid-related issues, and support holistic wellness.',
+    keyHighlights: [
+      'Hormonal Health',
+      'PCOS & Thyroid Support',
+      'Weight Management',
+      'Menopause Wellness',
+      'Energy & Immunity',
+      'Work-Life Wellbeing'
+    ],
+    evaluationTitle: 'Wellness Blueprint',
+    evaluationItems: [
+      "Women's Health Questionnaire",
+      'Hormonal Health Assessment',
+      'PCOS Risk Screening',
+      'Thyroid Health Screening Questionnaire',
+      'Menstrual Health Assessment',
+      'Body Composition & Metabolic Risk Analysis'
+    ],
     media: [
       { type: 'image', src: '/img/2.jpeg' },
  
@@ -59,6 +144,23 @@ const conditions = [
     title: 'Metabolic Health & Belly Fat Reset',
     shortDescription: 'Targeted metabolic resets to reduce visceral fat and improve metabolic flexibility.',
     detailedDescription: 'Focused on reducing belly fat, improving metabolism, balancing blood sugar, and enhancing overall body composition naturally and sustainably.',
+    keyHighlights: [
+      'Belly Fat Reduction',
+      'Blood Sugar Balance',
+      'Metabolism Boosting',
+      'Healthy Eating Habits',
+      'Gut Health Support',
+      'Sustainable Weight Loss'
+    ],
+    evaluationTitle: '360° Health Transformation',
+    evaluationItems: [
+      'Waist-to-Height Ratio Assessment',
+      'Body Fat Percentage Analysis',
+      'Metabolic Risk Assessment',
+      'Nutrition Assessment',
+      'Physical Activity Assessment',
+      'Blood Sugar Risk Screening'
+    ],
     media: [
       { type: 'image', src: '/img/4.jpeg' },
   
@@ -69,6 +171,23 @@ const conditions = [
     title: 'Diabetes & Preventive Health Program',
     shortDescription: 'Comprehensive protocols for reversing and preventing type 2 diabetes.',
     detailedDescription: 'A preventive wellness approach to help manage blood sugar, improve lifestyle habits, reduce health risks, and support long-term metabolic health.',
+    keyHighlights: [
+      'Blood Sugar Management',
+      'Prediabetes Prevention',
+      'Heart Health Support',
+      'Weight Management',
+      'Healthy Lifestyle Habits',
+      'Disease Risk Reduction'
+    ],
+    evaluationTitle: 'Wellness Journey',
+    evaluationItems: [
+      'Diabetes Risk Assessment',
+      'Blood Sugar Monitoring Review',
+      'Family History Risk Evaluation',
+      'Lifestyle Disease Risk Assessment',
+      'Nutrition Assessment',
+      'Physical Activity & Fitness Assessment'
+    ],
     media: [
       { type: 'image', src: '/img/12.jpg' },
       { type: 'image', src: '/img/9.jpg' },
@@ -218,6 +337,8 @@ export default function Conditions() {
               setSelectedCondition(null);
               setFullScreenIndex(null);
             }}
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
             className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
           >
             <motion.div
@@ -238,7 +359,12 @@ export default function Conditions() {
                 <X size={24} />
               </button>
               
-              <div className="p-6 sm:p-10 overflow-y-auto w-full [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full">
+              <div 
+                className="p-6 sm:p-10 overflow-y-auto flex-1 overscroll-contain w-full [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full"
+                onWheel={(e) => e.stopPropagation()}
+                onTouchMove={(e) => e.stopPropagation()}
+                data-lenis-prevent="true"
+              >
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-6 pr-10">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     <div className="p-4 bg-[#7AC943]/10 rounded-2xl shrink-0 w-fit">
@@ -265,6 +391,42 @@ export default function Conditions() {
                 <p className="text-gray-600 text-lg sm:text-xl leading-relaxed font-medium mb-10 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                   {selectedCondition?.detailedDescription}
                 </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h4 className="text-xl font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="w-6 h-1 bg-[#7AC943] rounded-full"></span>
+                      Key Highlights
+                    </h4>
+                    <ul className="space-y-3">
+                      {selectedCondition?.keyHighlights?.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#7AC943]/10 flex items-center justify-center mt-0.5">
+                            <svg className="w-3.5 h-3.5 text-[#7AC943]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <span className="text-gray-700 font-medium text-sm sm:text-base">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h4 className="text-xl font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="w-6 h-1 bg-[#7AC943] rounded-full"></span>
+                      {selectedCondition?.evaluationTitle}
+                    </h4>
+                    <ul className="space-y-3">
+                      {selectedCondition?.evaluationItems?.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#7AC943] mt-2"></div>
+                          <span className="text-gray-700 font-medium text-sm sm:text-base">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
 
                 <h4 className="text-xl font-extrabold text-gray-900 mb-6 flex items-center gap-2">
                   <span className="w-6 h-1 bg-[#7AC943] rounded-full"></span>
@@ -307,6 +469,8 @@ export default function Conditions() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center"
             onClick={() => setFullScreenIndex(null)}
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
           >
             <button 
               onClick={() => setFullScreenIndex(null)} 
